@@ -6,11 +6,8 @@ import pickle
 from education import extract_education_from_resume
 import sqlite3
 import pandas as pd
-
 from skills import extract_skills_from_resume
 from resume_ats import ats
-
-
 
 #database connection
 conn = sqlite3.connect('resume_data.db')
@@ -24,9 +21,6 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS resume
                     education TEXT
                 )
             ''')
-
-
-
 # Load models
 rf_classifier_categorization = pickle.load(open('Models/rf_classifier_categorization.pkl', 'rb'))
 tfidf_vectorizer_categorization = pickle.load(open('Models/tfidf_vectorizer_categorization.pkl', 'rb'))

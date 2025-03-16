@@ -2,7 +2,6 @@ import os
 from groq import Groq
 from PyPDF2 import PdfReader
 from dotenv import load_dotenv
-
 load_dotenv()
 client = Groq(
     api_key=os.getenv("groq_api_key")

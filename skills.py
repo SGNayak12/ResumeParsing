@@ -1,7 +1,7 @@
 import re
 def extract_skills_from_resume(text):
     # List of predefined skills
-    skills_list = [
+    skills_list =[
         'Python', 'Data Analysis', 'Machine Learning', 'Communication', 'Project Management', 'Deep Learning', 'SQL',
         'Tableau',
         'Java', 'C++','C','JavaScript', 'HTML', 'CSS', 'React', 'Angular', 'Node.js', 'MongoDB', 'Express.js', 'Git',
@@ -89,14 +89,15 @@ def extract_skills_from_resume(text):
         'Multi-Factor Authentication (MFA)', 'Blockchain', 'Cryptocurrency', 'Decentralized Finance (DeFi)',
         'Smart Contracts', 'Web3', 'Non-Fungible Tokens (NFTs)']
     skills = []
+    
 
     for skill in skills_list:
-        pattern = r"\b{}\b".format(re.escape(skill))  # Correctly escape the skill
+        pattern = r"\b{}\b".format(re.escape(skill))
+        print(pattern)
+        if(r"\bc\+\+\b"==pattern):
+            skills.append(skill)
         match = re.search(pattern, text, re.IGNORECASE)
         if match:
             skills.append(skill)
-
-            
     return skills
-
-
+# print(extract_skills_from_resume("Skilled in c,c++,python,java"))
